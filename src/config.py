@@ -15,15 +15,15 @@ class Settings:
     API_KEY: str = os.getenv("API_KEY", "qwen3-direct-access")
 
     # Model settings
-    MODEL_NAME: str = os.getenv("MODEL_NAME", "qwen3-4b")
-    MODEL_FILE: str = os.getenv("MODEL_FILE", "qwen3-4b-instruct-q4_k_m.gguf")
+    MODEL_NAME: str = os.getenv("MODEL_NAME", "qwen3-1.7b")
+    MODEL_FILE: str = os.getenv("MODEL_FILE", "qwen3-1.7b-q4_k_m.gguf")
     MODEL_PATH: str = os.getenv(
         "MODEL_PATH",
-        str(Path(__file__).resolve().parent.parent / "models" / os.getenv("MODEL_FILE", "qwen3-4b-instruct-q4_k_m.gguf")),
+        str(Path(__file__).resolve().parent.parent / "models" / os.getenv("MODEL_FILE", "qwen3-1.7b-q4_k_m.gguf")),
     )
     MODEL_URL: str = os.getenv(
         "MODEL_URL",
-        "https://huggingface.co/bartowski/Qwen_Qwen3-4B-Instruct-2507-GGUF/resolve/main/Qwen_Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+        "https://huggingface.co/bartowski/Qwen_Qwen3-1.7B-GGUF/resolve/main/Qwen_Qwen3-1.7B-Q4_K_M.gguf",
     )
     MODEL_SHA256: Optional[str] = os.getenv("MODEL_SHA256", None)
 
