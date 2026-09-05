@@ -89,6 +89,14 @@ setup_tunnel() {
                 echo "===================================================================="
                 echo ""
                 
+                # Automatically publish endpoint.txt to GitHub repo so Vercel frontend reads it directly
+                echo "$PUBLIC_URL" > endpoint.txt
+                git config user.name "github-actions[bot]"
+                git config user.email "github-actions[bot]@users.noreply.github.com"
+                git add endpoint.txt
+                git commit -m "chore: update live endpoint.txt [skip ci]" || true
+                git push origin main || true
+
                 # If running inside GitHub Actions, publish to step summary
                 if [ -n "$GITHUB_STEP_SUMMARY" ]; then
                     {

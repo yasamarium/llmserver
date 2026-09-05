@@ -11,8 +11,8 @@ class Settings:
     HOST: str = os.getenv("HOST", "0.0.0.0")
     PORT: int = int(os.getenv("PORT", "8000"))
 
-    # Security
-    API_KEY: str = os.getenv("API_KEY", "")
+    # Security - defaults to qwen3-direct-access so zero configuration is required
+    API_KEY: str = os.getenv("API_KEY", "qwen3-direct-access")
 
     # Model settings
     MODEL_NAME: str = os.getenv("MODEL_NAME", "qwen3-4b")

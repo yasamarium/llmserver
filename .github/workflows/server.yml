@@ -20,6 +20,9 @@ jobs:
   serve:
     name: Run Qwen3 4B Server
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
     # Maximum execution limit on standard GitHub-hosted runners is 360 minutes (6 hours).
     # We set the job timeout to 350 minutes (~5h 50m) to allow clean shutdown and handoff.
     timeout-minutes: 350
@@ -39,8 +42,8 @@ jobs:
       # ~5 hours per server process restart inside this workflow run (18000s)
       RESTART_INTERVAL_SECONDS: "18000"
       RUN_SINGLE_CYCLE: "true"
-      # Secrets from GitHub Repository Secrets
-      API_KEY: ${{ secrets.API_KEY }}
+      # Secrets from GitHub Repository Secrets (with built-in direct fallback)
+      API_KEY: ${{ secrets.API_KEY || 'qwen3-direct-access' }}
       GH_PAT: ${{ secrets.GH_PAT }}
       CLOUDFLARE_TUNNEL_TOKEN: ${{ secrets.CLOUDFLARE_TUNNEL_TOKEN }}
       TARGET_REPO: "yasamarium/llm"
