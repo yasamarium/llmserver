@@ -1,1 +1,1 @@
-https://subscriber-forty-votes-boundary.trycloudflare.com
+https://api.trycloudflare.com
